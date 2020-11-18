@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Welcome {{ user }}</h1>
+    <a href="{% url 'logout' %} ">Выход!!!)</a>
+    <img src="{% static '/' %}{{ path }}" width="300px" height="300px" alt="">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Сохранить">
+    </form>
+
+    <script>
+        document.getElementsByName('first_name')[0].value = '{{ first_name }}'
+        document.getElementsByName('second_name')[0].value = '{{ second_name }}'
+        document.getElementsByName('third_name')[0].value = '{{ third_name }}'
+        document.getElementsByName('about_you')[0].value = '{{ about_you }}'
+    </script>
+</body>
+</html>
